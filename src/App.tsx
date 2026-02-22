@@ -153,10 +153,13 @@ className="h-10"
           ))}
         </div>
         <div className="flex justify-center items-center gap-4 text-xs text-[#8e8e8e]">
-          <select className="bg-transparent outline-none cursor-pointer">
-            <option>English</option>
-            <option>Español</option>
-            <option>Français</option>
-            <option>Deutsch</option>
-          </select>
-          <span>© 
+      <select className="bg-transparent outline-none cursor-pointer">
+  <option>English</option>
+  <option>Español</option>
+  <option>Français</option>
+  <option>Deutsch</option>
+</select>
+
+<span>© {new Date().getFullYear()} Instagram</span>
+</div>
+</footer>
